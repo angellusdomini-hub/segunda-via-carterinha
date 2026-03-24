@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaração de Batismo - Segunda Via</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media print {
+            .no-print { display: none; }
+            @page { size: A4; margin: 0; }
+            body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; }
+            .cert-container { 
+                margin: 0 !important; 
+                box-shadow: none !important; 
+                border: none !important; 
+                width: 210mm; 
+                height: 297mm;
+                page-break-after: avoid;
+            }
+        }
+        body { font-family: 'Times New Roman', Times, serif; background-color: #f3f4f6; }
+        .cert-container {
+            width: 210mm;
+            height: 297mm;
+            padding: 12mm 18mm; /* Margens reduzidas para ganhar fôlego */
+            margin: 5px auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .missa-box {
+            border: 1px solid #000;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            background: #fff;
+        }
+        .signature-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        .signature-img {
+            position: absolute;
+            bottom: 38px; /* Subida de 3 linhas mantida */
+            max-width: 230px;
+            max-height: 85px;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="p-2">
+
+    <div class="no-print mb-4 max-w-3xl mx-auto bg-white p-4 rounded-lg shadow-md border-t-4 border-blue-600 font-sans">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <input type="text" id="inputNome" oninput="atualizar()" placeholder="Nome do Participante" class="border p-2 rounded uppercase col-span-3">
+            <input type="text" id="inputDataPart" oninput="atualizar()" placeholder="Data do Curso" class="border p-2 rounded">
+            <input type="text" id="inputDataEmissao" oninput="atualizar()" placeholder="Data de Emissão" class="border p-2 rounded">
+            <button onclick="window.print()" class="bg-blue-700 text-white font-bold py-2 rounded hover:bg-blue-800 transition-all">🖨️ IMPRIMIR A4</button>
+        </div>
+    </div>
+
+    <div class="cert-container">
+        <div class="absolute top-6 right-8 text-red-600 font-black border-2 border-red-600 px-3 py-1 rotate-12 opacity-30 text-lg">
+            SEGUNDA VIA
+        </div>
+
+        <div class="flex justify-between items-center border-b-2 border-amber-800 pb-2 mb-4">
+            <img src="file:///C:/Users/angel/Downloads/Design%20sem%20nome/1.jpg" style="max-width: 85px;" onerror="this.style.visibility='hidden'">
+            <div class="text-center flex-1 mx-2">
+                <h1 class="text-xl font-bold uppercase text-amber-900 leading-tight">Paróquia Santuário Divino Espírito Santo</h1>
+                <h2 class="text-base font-semibold text-gray-700">Diocese de Jacarezinho</h2>
+                <p class="text-xs text-gray-600">Ribeirão do Pinhal - PR</p>
+                <div class="mt-1 pt-1 border-t border-amber-100">
+                    <span class="text-xs font-bold tracking-[0.2em] uppercase text-amber-700">Pastoral do Batismo</span>
+                </div>
+            </div>
+            <img src="file:///C:/Users/angel/Downloads/Design%20sem%20nome/2.jpg" style="max-width: 85px;" onerror="this.style.visibility='hidden'">
+        </div>
+
+        <div class="flex-grow flex flex-col justify-center px-4">
+            <h3 class="text-3xl font-bold text-center mb-8 underline decoration-amber-800 underline-offset-4 tracking-widest text-gray-800">DECLARAÇÃO</h3>
+            
+            <p class="text-lg leading-relaxed text-justify mb-4">
+                A Pastoral do Batismo da <strong>Paróquia Santuário Divino Espírito Santo</strong>, atesta para os devidos fins que:
+            </p>
+
+            <div class="my-4 py-4 border-y border-gray-100">
+                <p class="text-2xl font-black text-center uppercase tracking-tight text-gray-900" id="displayNome">
+                    [NOME DO PARTICIPANTE]
+                </p>
+            </div>
+
+            <p class="text-lg leading-relaxed text-justify mb-6">
+                participou do Encontro de Preparação para o Batismo realizado no dia <strong id="displayDataPart">[DATA]</strong>. Esta declaração constitui-se como uma <strong>segunda via</strong> do registro original.
+            </p>
+
+            <div class="mt-4 p-4 rounded border-2 border-gray-100 bg-gray-50/50">
+                <p class="text-[10px] font-bold mb-3 text-gray-500 uppercase tracking-widest text-center">Registro de Participação em Santas Missas</p>
+                <div class="grid grid-cols-3 gap-6">
+                    <div>
+                        <div class="missa-box">Assinatura / Carimbo</div>
+                        <p class="text-[9px] mt-1 text-center font-bold text-gray-400 uppercase">1ª Celebração</p>
+                    </div>
+                    <div>
+                        <div class="missa-box">Assinatura / Carimbo</div>
+                        <p class="text-[9px] mt-1 text-center font-bold text-gray-400 uppercase">2ª Celebração</p>
+                    </div>
+                    <div>
+                        <div class="missa-box">Assinatura / Carimbo</div>
+                        <p class="text-[9px] mt-1 text-center font-bold text-gray-400 uppercase">3ª Celebração</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-lg text-right mt-12 text-gray-700">
+                Ribeirão do Pinhal, <span id="displayDataEmissao">[DATA DE EMISSÃO]</span>.
+            </p>
+        </div>
+
+        <div class="signature-wrapper mb-6">
+            <img src="file:///C:/Users/angel/Downloads/assinatura%20joao%20paulo.png" 
+                 class="signature-img" 
+                 alt="Assinatura"
+                 onerror="this.style.display='none';">
+            
+            <div class="w-72 border-t-2 border-black mb-1"></div>
+            <p class="text-base font-bold uppercase text-gray-900 tracking-tighter">João Paulo da Rocha</p>
+            <p class="text-xs text-gray-600 font-serif italic">Coordenador da Pastoral do Batismo</p>
+        </div>
+    </div>
+
+    <script>
+        function atualizar() {
+            document.getElementById('displayNome').innerText = document.getElementById('inputNome').value || '[NOME DO PARTICIPANTE]';
+            document.getElementById('displayDataPart').innerText = document.getElementById('inputDataPart').value || '[DATA]';
+            document.getElementById('displayDataEmissao').innerText = document.getElementById('inputDataEmissao').value || '[DATA DE EMISSÃO]';
+        }
+    </script>
+</body>
+</html>
